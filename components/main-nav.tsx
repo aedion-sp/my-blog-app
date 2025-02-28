@@ -11,8 +11,9 @@ export function MainNav() {
 
   return (
     <nav className="flex items-center space-x-4 lg:space-x-6">
-      <Link href="/" className="mr-6 flex items-center space-x-2">
-        <span className="font-bold">{siteConfig.name}</span>
+      <Link href="/" className="flex items-center space-x-2">
+        <Icons.logo className="w-4 h-4" />
+        <span className="relative -left-1 font-bold">{siteConfig.name}</span>
       </Link>
       <Link
         href="/blog"
