@@ -1,7 +1,7 @@
 export const siteConfig = {
-  name: "noidea blog",
+  name: "IdeaBits",
   url: "https://example.com",
-  description: "noidea blog using Velite and MDX",
+  description: "A blog website using Velite and MDX",
   author: "Oakkar Phyo",
   links: {
     instagram:"https://www.instagram.com/noooidea.creative/",
