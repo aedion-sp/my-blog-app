@@ -6,11 +6,13 @@ import "@/styles/mdx.css";
 import { Metadata } from "next";
 import { siteConfig } from "@/config/site";
 interface PostPageProps {
-  params: { slug: string[] }
+  params: Promise<{
+    slug: string[];
+  }>;
 }
 
 async function getPostFromParams(params: PostPageProps["params"]) {
-  const slug = params?.slug?.join("/");
+  const slug = (await params)?.slug?.join("/");
   const post = posts.find((post) => post.slugAsParams === slug);
 
   return post;
