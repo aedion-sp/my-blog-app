@@ -1,6 +1,6 @@
 export const siteConfig = {
   name: "IdeaBits",
-  url: "",
+  url: "https://ideabits.vercel.app",
   description: "A blog website using Velite and MDX",
   author: "Oakkar Phyo",
   links: {
