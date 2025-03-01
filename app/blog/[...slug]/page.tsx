@@ -1,6 +1,6 @@
 import { posts } from "#site/content";
 import { MDXContent } from "@/components/mdx-components";
-import { notFound } from "next/navigation";
+import NotFound from "@/app/not-found";
 
 import "@/styles/mdx.css";
 import { Metadata } from "next";
@@ -64,7 +64,7 @@ export async function generateStaticParams(){
 export default async function PostPage({ params }: PostPageProps) {
   const post = await getPostFromParams(params);
   if (!post || !post.published) {
-    return notFound();
+    return <NotFound />;
   }
 
   return (

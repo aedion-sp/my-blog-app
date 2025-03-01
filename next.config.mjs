@@ -6,7 +6,9 @@ if (!process.env.VELITE_STARTED && (isDev || isBuild)) {
   await build({ watch: isDev, clean: !isDev })
 }
 
-/** @type {import('next').NextConfig} */
-export default {
+const nextConfig = {
   // next config here...
 }
+
+/** @type {import('next').NextConfig} */
+export default nextConfig;
