@@ -7,7 +7,7 @@ interface TagProps {
   current?: boolean;
   count?: number;
 }
-export function Tag({ tag, current }: TagProps) {
+export function Tag({ tag, current, count }: TagProps) {
   return (
     <Link
       className={badgeVariants({
@@ -16,7 +16,7 @@ export function Tag({ tag, current }: TagProps) {
       })}
       href={`/tags/${slug(tag)}`}
     >
-      {tag}
+      {tag} {count ? `(${count})` : null}
     </Link>
   );
 }
