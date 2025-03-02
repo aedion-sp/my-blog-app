@@ -88,7 +88,7 @@ export default async function PostPage({ params }: PostPageProps) {
       {post.description ? (
         <p className="text-xl mt-0 text-muted-foreground">{post.description}</p>
       ) : null}
-      {translatedPost ? (
+      {translatedPost ? 
         translatedPost.language === "my" ? (
           <Alert className="bg-green-100 dark:bg-green-950 ">
             <Languages className="h-4 w-4"/>
@@ -106,7 +106,7 @@ export default async function PostPage({ params }: PostPageProps) {
             </AlertDescription>
           </Alert>
         )
-      ) : null}
+       : null}
       <hr className="my-4" />
       <MDXContent code={post.body} />
     </article>
