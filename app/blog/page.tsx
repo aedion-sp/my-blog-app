@@ -1,4 +1,5 @@
 import { posts } from "#site/content";
+import { LanguageSwitcher } from "@/components/language-switcher";
 import { PostItem } from "@/components/post-item";
 import { QueryPagination } from "@/components/query-pagination";
 import { sortPosts } from "@/lib/utils";
@@ -13,12 +14,14 @@ const POSTS_PER_PAGE = 5;
 interface BlogPageProps {
   searchParams: Promise<{
     page?: string;
+    lang?: string;
   }>;
 }
 
 export default async function BlogPage({ searchParams }: BlogPageProps) {
   const currentPage = Number((await searchParams)?.page) || 1
-  const sortedPosts = sortPosts(posts.filter((post) => post.published));
+  const language = (await searchParams)?.lang || "en";
+  const sortedPosts = sortPosts(posts.filter((post) => post.published && post.language === language));
   const totalPages = Math.ceil(sortedPosts.length / POSTS_PER_PAGE);
 
   const displayPosts = sortedPosts.slice(
@@ -35,6 +38,7 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
             My rumblings on all things web dev.
           </p>
         </div>
+        <LanguageSwitcher />
       </div>
       <hr className="mt-8" />
       {displayPosts?.length > 0 ? (

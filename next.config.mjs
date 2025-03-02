@@ -7,7 +7,10 @@ if (!process.env.VELITE_STARTED && (isDev || isBuild)) {
 }
 
 const nextConfig = {
-  // next config here...
+  i18n: {
+    defaultLocale: 'en',
+    locales: ['en', 'my'],
+  }
 }
 
 /** @type {import('next').NextConfig} */
