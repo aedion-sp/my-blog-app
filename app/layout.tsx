@@ -7,6 +7,7 @@ import { Providers } from "@/components/providers";
 import { siteConfig } from "@/config/site";
 import { SiteFooter } from "@/components/site-footer";
 import { SpeedInsights } from '@vercel/speed-insights/next';
+import { GoogleAnalytics } from '@next/third-parties/google'
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -54,6 +55,7 @@ export default function RootLayout({
           </div>
         </Providers>
       </body>
+      <GoogleAnalytics gaId="G-0WW07MRSL6"/>
     </html>
   );
 }
