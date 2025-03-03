@@ -4,13 +4,13 @@ import { siteConfig } from "@/config/site";
 
 export const runtime = "edge";
 
-const interBold = fetch(
-  new URL("../../../assets/fonts/Z06-Walone-Bold.ttf", import.meta.url)
+const padaukBold = fetch(
+  new URL("../../../assets/fonts/Padauk-Bold.ttf", import.meta.url)
 ).then((res) => res.arrayBuffer());
 
 export async function GET(req: NextRequest) {
   try {
-    const fontBold = await interBold;
+    const fontBold = await padaukBold;
 
     const { searchParams } = req.nextUrl;
     const title = searchParams.get("title");
@@ -62,7 +62,7 @@ export async function GET(req: NextRequest) {
         height: 630,
         fonts: [
           {
-            name: "Inter",
+            name: "Padauk",
             data: fontBold,
             style: "normal",
             weight: 700,
