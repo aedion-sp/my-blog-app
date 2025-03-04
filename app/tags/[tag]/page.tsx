@@ -46,7 +46,7 @@ export default async function TagPage({ params, searchParams }: TagPageProps) {
   return (
     <Suspense
       fallback={
-        <div className="flex justify-center items-center h-screen bg-gray-100 dark:bg-gray-900">
+        <div className="flex justify-center items-center h-screen bg-background">
           <div className="space-y-2">
             <Skeleton className="h-4 w-[250px]" />
             <Skeleton className="h-4 w-[200px]" />
