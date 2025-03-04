@@ -27,7 +27,7 @@ export async function generateMetadata({ params }: TagPageProps) {
 
 export const generateStaticParams = () => {
   const tags = getAllTags(posts);
-  const paths = Object.keys(tags).map((tag) => ({ tag: slug(tag) }));
+  const paths = [...tags].map((tag) => ({ tag: slug(tag) }));
   return paths;
 };
 
