@@ -6,8 +6,8 @@ import { SiteHeader } from "@/components/site-header";
 import { Providers } from "@/components/providers";
 import { siteConfig } from "@/config/site";
 import { SiteFooter } from "@/components/site-footer";
-import { SpeedInsights } from '@vercel/speed-insights/next';
-import { GoogleAnalytics } from '@next/third-parties/google'
+import { SpeedInsights } from "@vercel/speed-insights/next";
+import { GoogleAnalytics } from "@next/third-parties/google";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -22,15 +22,15 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: siteConfig.name,
   description: siteConfig.description,
-  metadataBase: new URL(process.env.NEXT_PUBLIC_APP_URL ?? siteConfig.url)
+  metadataBase: new URL(process.env.NEXT_PUBLIC_APP_URL ?? siteConfig.url),
 };
 
 export const viewport: Viewport = {
   themeColor: [
-    {media: "(prefers-color-scheme: light)", color: "white"},
-    {media: "(prefers-color-scheme: dark)", color: "black"}
-  ]
-}
+    { media: "(prefers-color-scheme: light)", color: "white" },
+    { media: "(prefers-color-scheme: dark)", color: "black" },
+  ],
+};
 
 export default function RootLayout({
   children,
@@ -55,7 +55,7 @@ export default function RootLayout({
           </div>
         </Providers>
       </body>
-      <GoogleAnalytics gaId="G-0WW07MRSL6"/>
+      <GoogleAnalytics gaId="G-0WW07MRSL6" />
     </html>
   );
 }
