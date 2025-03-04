@@ -8,10 +8,9 @@ import { useSearchParams } from "next/navigation";
 interface TagProps {
   tag: string;
   current?: boolean;
-  count?: number;
 }
 
-export function Tag({ tag, current, count }: TagProps) {
+export function Tag({ tag, current }: TagProps) {
   const searchParams = useSearchParams();
   const currentLang = searchParams.get("lang") || "en";
 
@@ -25,7 +24,7 @@ export function Tag({ tag, current, count }: TagProps) {
       })}
       href={tagUrl}
     >
-      {tag} {count ? `(${count})` : null}
+      {tag}
     </Link>
   );
 }

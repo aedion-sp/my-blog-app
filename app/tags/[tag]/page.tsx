@@ -4,7 +4,7 @@ import { PostItem } from "@/components/post-item";
 import { Tag } from "@/components/tag";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Skeleton } from "@/components/ui/skeleton";
-import { getAllTags, getPostsByTagSlug, sortTagsByCount } from "@/lib/utils";
+import { getAllTags, getPostsByTagSlug, sortTagsByAlphabet } from "@/lib/utils";
 import { slug } from "github-slugger";
 import { Suspense } from "react";
 
@@ -41,12 +41,12 @@ export default async function TagPage({ params, searchParams }: TagPageProps) {
     (post) => post.published && post.language === language
   );
   const tags = getAllTags(posts);
-  const sortedTags = sortTagsByCount(tags);
+  const sortedTags = sortTagsByAlphabet(tags);
 
   return (
     <Suspense
       fallback={
-        <div className="flex justify-center items-center h-screen bg-gray-100">
+        <div className="flex justify-center items-center h-screen bg-gray-100 dark:bg-gray-900">
           <div className="space-y-2">
             <Skeleton className="h-4 w-[250px]" />
             <Skeleton className="h-4 w-[200px]" />
@@ -98,7 +98,6 @@ export default async function TagPage({ params, searchParams }: TagPageProps) {
                 <Tag
                   tag={t}
                   key={t}
-                  count={tags[t]}
                   current={slug(t) === tag}
                 />
               ))}

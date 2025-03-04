@@ -25,18 +25,19 @@ export function sortPosts(posts: Array<Post>) {
 }
 
 export function getAllTags(posts: Array<Post>) {
-  const tags: Record<string, number> = {};
+  const tags: Set<string> = new Set();
   posts.forEach((post) => {
     post.tags?.forEach((tag) => {
-      tags[tag] = (tags[tag] ?? 0) + 1;
+      tags.add(tag)
     });
   });
 
   return tags;
 }
 
-export function sortTagsByCount(tags: Record<string, number>) {
-  return Object.keys(tags).sort((a, b) => tags[b] - tags[a]);
+export function sortTagsByAlphabet(tags: Set<string>) {
+  const tagsArr: Array<string> = new Array(...tags); 
+  return tagsArr.sort();
 }
 
 export function getPostsByTagSlug(posts: Array<Post>, tag: string) {
